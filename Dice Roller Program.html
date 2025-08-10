@@ -1,0 +1,38 @@
+<!-- Dice Roller Program -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dice Roller</title>
+<style>
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #dice {
+    font-size: 10rem;
+    margin: 20px;
+  }
+  button {
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <h1>Dice Roller 🎲</h1>
+  <div id="dice">🎲</div>
+  <button id="rollBtn">Roll Dice</button>
+
+  <script>
+    const diceFaces = ['⚀','⚁','⚂','⚃','⚄','⚅'];
+    document.getElementById('rollBtn').onclick = () => {
+      const randomIndex = Math.floor(Math.random() * 6);
+      document.getElementById('dice').textContent = diceFaces[randomIndex];
+    };
+  </script>
+</body>
+</html>
