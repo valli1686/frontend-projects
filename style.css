@@ -1,0 +1,376 @@
+/** body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: blanchedalmond;
+
+}
+
+h1{
+    color: blueviolet;
+}
+form{
+    background-color: aqua;
+    text-align: center;
+    max-width: 350px;
+    padding: 25px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px ;
+}
+
+#textBox{
+
+    width: 50%;
+
+    text-align: center;
+
+    font-size: 2em;
+
+    border: 2px solid hsla(0, 0%, 0%, 0.8);
+
+    border-radius: 4px;
+
+    margin-bottom: 15px;
+}
+
+label{
+
+    font-size: 1.5em;
+
+    font-weight: bold;
+}
+
+button{
+
+    margin-top: 15px;
+
+    background-color:hsla(0, 0%, 0%, 0.8);
+    font-size: 1.5em;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: blue;
+}
+#result{
+    font-size: 1.75em;
+    font-weight: bold;
+}
+
+**/
+
+
+/**
+body {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/24701-nature-natural-beauty.jpg/1200px-24701-nature-natural-beauty.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+#clock-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    height: 100vh;
+}
+
+#clock {
+    font-family: monospace;
+    font-size: 6.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: antiquewhite;
+    backdrop-filter: blur(5px);
+    background-color: gray;
+    width: 100%;
+}
+
+**/
+
+/**
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+#myH1 {
+    font-size: 4rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: aqua;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border: 5px solid;
+    border-radius: 50px;
+    background-color: aliceblue;
+}
+
+#display {
+    font-size: 5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: rgb(141, 155, 150);
+    text-shadow: 2px 2px 2px rgb(26, 33, 31);
+}
+
+#controls button {      
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+#Startbtn {
+    background-color: aquamarine;
+}
+#Startbtn:hover {
+    background-color: rgb(19, 162, 114);
+}
+
+#Stopbtn {
+    background-color: orange;
+}
+#Stopbtn:hover {
+    background-color: rgb(194, 120, 6);
+}
+
+#Resetbtn {
+    background-color: tomato;
+}
+#Resetbtn:hover {
+    background-color: red;
+}
+**/
+
+
+/**
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: wheat;
+}
+
+#calculator {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(23, 17, 10);
+    border-radius: 15px;
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+
+#display{
+    width: 100%;
+    padding: 20px;
+    font-size: 5rem;
+    text-align: left;
+    border: none;
+    background-color: rgb(99, 89, 89);
+}
+
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 25px;
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: rgb(92, 82, 68);
+    color: aliceblue;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(159, 148, 148);
+}
+
+button:active{
+    background-color: rgb(190, 181, 181);
+}
+
+.operator-btn{
+    background-color: rgb(226, 179, 90);
+}
+.operator-btn:hover{
+    background-color: rgb(239, 219, 182);
+}
+.operator-btn:active{
+    background-color: rgb(238, 197, 123);
+}
+**/
+/**
+.box{
+    border: 3px solid;
+    width: 100%;
+    height: 125px;
+}
+    **/
+
+
+/**
+#mybutton{
+    font-size: 2rem;
+}
+**/
+
+
+
+/**
+.mybutton{
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    background-color: blueviolet;
+    color: aliceblue;
+}
+**/
+
+
+/** r-p-s
+body{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: 3.5rem;
+    color: rgb(32, 28, 28);
+}
+
+.choices{
+    margin-bottom: 30px;
+}
+.choices button{
+    font-size: 7.5rem;
+    min-width: 160px;
+    margin: 0 10px;
+    border-radius: 250px;
+    background-color: rgb(114, 228, 228);
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.choices button:hover{
+    background-color: rgb(24, 187, 187);;
+}
+
+#player{
+    font-size: 2.5rem;
+}
+
+#result{
+    font-size: 5rem;
+    margin: 30px 0;
+}
+**/
+
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color:white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.weather{
+    margin: 20px;
+}
+.city{
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+}
+button[type="submit"]{
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 2rem;
+    background-color: aqua;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover{
+    background-color: rgb(42, 167, 167);
+}
+.card{
+    background: linear-gradient(180deg, rgb(111, 186, 248),rgb(244, 203, 126));
+    padding: 50px;
+    box-shadow: 2px 2px 5px rgb(105, 89, 89);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: 3.5rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+p{
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+.citydisplay, .tempdisplay{
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: rgb(62, 41, 41);
+    margin-bottom: 25px;
+}
+.humiditydisplay{
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.descdisplay{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.weatheremoji{
+    margin: 0;
+    font-size: 7.5rem;
+}
+.errordisplay{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(48, 17, 17);
+}
