@@ -1,13 +1,148 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>detinations</title>
-        <link rel="stylesheet" href="deststyle.css">
-    </head>
-    <body>
-        <section class="container">
-            <div class="card">
-                <div class="inner-card">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Destinations</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f3e5f5; /* light purple background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Container for cards */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        /* Card perspective */
+        .card {
+            perspective: 1200px;
+        }
+
+        /* Inner card */
+        .inner-card {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+            transform-style: preserve-3d;
+            transition: transform 0.7s ease;
+            cursor: pointer;
+        }
+
+        .card:hover .inner-card {
+            transform: rotateY(180deg);
+        }
+
+        /* Front & Back */
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Front */
+        .front {
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .front img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            border-bottom: 3px solid #9c27b0; /* purple accent */
+            transition: transform 0.3s ease;
+        }
+
+        .front img:hover {
+            transform: scale(1.05);
+        }
+
+        .front h3 {
+            margin: 15px 0;
+            font-size: 1.4rem;
+            color: #7b1fa2; /* deep purple */
+            text-align: center;
+        }
+
+        /* Back side */
+        .back {
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* Purple gradient back for all cards */
+        .back {
+            background: linear-gradient(135deg, #ce93d8, #7b1fa2); /* light to deep purple */
+        }
+
+        .back p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .back button {
+            padding: 10px 25px;
+            background: #9c27b0;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back button:hover {
+            background: #7b1fa2;
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) { .inner-card { height: 350px; } }
+        @media (max-width: 768px) { .inner-card { height: 300px; } }
+        @media (max-width: 480px) {
+            .container { grid-template-columns: 1fr; gap: 20px; }
+            .inner-card { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="card">
+            <div class="inner-card">
                 <div class="front">
                     <img src="https://www.smartmeetings.com/wp-content/uploads/2018/03/japan-1.jpg" alt="japan">
                     <h3>Japan</h3>
@@ -16,11 +151,11 @@
                     <p>Discover cherry blossoms, ancient temples & futuristic tech! 🌸⛩️🤖</p>
                     <button>Book Now</button>
                 </div>
-                </div>
             </div>
+        </div>
 
-            <div class="card">
-                <div class="inner-card">
+        <div class="card">
+            <div class="inner-card">
                 <div class="front">
                     <img src="https://media.traveldepartment.co.uk/image/upload/g_auto,f_auto,q_auto:best,c_lfill,w_1000/v1723818250/Explore_Cinque_Terre_Top_Places_Italy_0ebdfe7ae3" alt="italy">
                     <h3>Italy</h3>
@@ -29,11 +164,11 @@
                     <p>Wander through Rome, sail Venice & taste real pasta! 🇮🇹🍝🚤</p>
                     <button>Book Now</button>
                 </div>
-                </div>
             </div>
+        </div>
 
-            <div class="card">
-                <div class="inner-card">
+        <div class="card">
+            <div class="inner-card">
                 <div class="front">
                     <img src="https://media-cdn.tripadvisor.com/media/photo-s/29/7c/95/78/overwater-villas.jpg" alt="maldives">
                     <h3>Maldives</h3>
@@ -42,76 +177,73 @@
                     <p>Relax in crystal-clear waters, stay in water villas, and enjoy island vibes! 🏝️</p>
                     <button>Book Now</button>
                 </div>
-                </div>
             </div>
+        </div>
 
-            <div class="card">
-                <div class="inner-card">
+        <div class="card">
+            <div class="inner-card">
                 <div class="front">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Burj_Khalifa_2021.jpg/960px-Burj_Khalifa_2021.jpg" alt="dubai">
+                    <img src="https://media.istockphoto.com/id/827901014/photo/dubai-marina-city-skyline-in-the-united-arab-emirates.jpg?s=612x612&w=0&k=20&c=IZNEwPuR2-oAdjDEiimLvvCrntxBqCkMvDXM0uDvnRk=" alt="dubai">
                     <h3>Dubai</h3>
                 </div>
                 <div class="back">
                     <p>Explore desert safaris, sky-high buildings, luxury shopping & more! 🏜️🌆</p>
                     <button>Book Now</button>
                 </div>
-                </div>
             </div>
-            <div class="card">
-                <div class="inner-card">
-                    <div class="front">
+        </div>
+
+        <div class="card">
+            <div class="inner-card">
+                <div class="front">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Matterhorn_from_Domh%C3%BCtte_-_2.jpg" alt="switzerland">
                     <h3>Switzerland</h3>
-                    </div>
-                    <div class="back">
+                </div>
+                <div class="back">
                     <p>Snowy Alps, scenic trains & chocolate dreams! ❄️🚞🍫</p>
                     <button>Book Now</button>
-                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="card">
-                <div class="inner-card">
-                    <div class="front">
+        <div class="card">
+            <div class="inner-card">
+                <div class="front">
                     <img src="https://www.pelago.com/img/destinations/bali/0619-0941_bali-xlarge.webp" alt="bali">
                     <h3>Bali</h3>
-                    </div>
-                    <div class="back">
+                </div>
+                <div class="back">
                     <p>Beachside temples, surfing, and tropical bliss! 🏖️🌅🌴</p>
                     <button>Book Now</button>
-                    </div>
                 </div>
             </div>
+        </div>
 
-
-            <div class="card">
-                <div class="inner-card">
-                    <div class="front">
+        <div class="card">
+            <div class="inner-card">
+                <div class="front">
                     <img src="https://media.istockphoto.com/id/521707831/photo/seoul-south-korea-skyline.jpg?s=612x612&w=0&k=20&c=Zlxokjq-Yf_lkGDDReM4SlOXvCebTpFBxZ6b2-MknW8=" alt="korea">
                     <h3>South Korea</h3>
-                    </div>
-                    <div class="back">
+                </div>
+                <div class="back">
                     <p>Palaces, K-pop, tech streets, and spicy food! 🎶📱🌶️</p>
                     <button>Book Now</button>
-                    </div>
                 </div>
             </div>
+        </div>
 
-
-            <div class="card">
-                <div class="inner-card">
-                    <div class="front">
+        <div class="card">
+            <div class="inner-card">
+                <div class="front">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Kheops-Pyramid.jpg" alt="egypt">
                     <h3>Egypt</h3>
-                    </div>
-                    <div class="back">
+                </div>
+                <div class="back">
                     <p>Walk among pyramids, ride camels & cruise the Nile! 🏜️🐫⛵</p>
                     <button>Book Now</button>
-                    </div>
                 </div>
             </div>
-
-        </section>
-
-    </body>
+        </div>
+    </section>
+</body>
 </html>
