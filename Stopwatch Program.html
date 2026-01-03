@@ -1,0 +1,83 @@
+<!-- Stopwatch Program -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stopwatch</title>
+<style>
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  #display {
+    font-size: 5rem;
+    margin-bottom: 20px;
+  }
+  button {
+    font-size: 1.5rem;
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    border: none;
+  }
+  #startBtn { background-color: aquamarine; }
+  #startBtn:hover { background-color: #13a272; }
+  #stopBtn { background-color: orange; }
+  #stopBtn:hover { background-color: #c27806; }
+  #resetBtn { background-color: tomato; }
+  #resetBtn:hover { background-color: red; }
+</style>
+</head>
+<body>
+  <div id="display">00:00:00</div>
+  <div id="controls">
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+
+  <script>
+    let timer = null;
+    let totalSeconds = 0;
+
+    function formatTime(seconds) {
+      const hrs = Math.floor(seconds / 3600).toString().padStart(2,'0');
+      const mins = Math.floor((seconds % 3600) / 60).toString().padStart(2,'0');
+      const secs = (seconds % 60).toString().padStart(2,'0');
+      return `${hrs}:${mins}:${secs}`;
+    }
+
+    function updateDisplay() {
+      document.getElementById('display').textContent = formatTime(totalSeconds);
+    }
+
+    document.getElementById('startBtn').onclick = () => {
+      if(timer) return;
+      timer = setInterval(() => {
+        totalSeconds++;
+        updateDisplay();
+      }, 1000);
+    };
+
+    document.getElementById('stopBtn').onclick = () => {
+      clearInterval(timer);
+      timer = null;
+    };
+
+    document.getElementById('resetBtn').onclick = () => {
+      clearInterval(timer);
+      timer = null;
+      totalSeconds = 0;
+      updateDisplay();
+    };
+
+    updateDisplay();
+  </script>
+</body>
+</html>

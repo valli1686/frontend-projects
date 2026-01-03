@@ -1,0 +1,96 @@
+<!-- Image Slider -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Image Slider</title>
+<style>
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #eee;
+  }
+  #slider {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+  #slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+  #slider img.active {
+    display: block;
+  }
+  .controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  button {
+    background-color: rgba(0,0,0,0.4);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    user-select: none;
+  }
+  button:hover {
+    background-color: rgba(0,0,0,0.7);
+  }
+</style>
+</head>
+<body>
+  <div id="slider">
+    <img src="https://picsum.photos/id/1018/600/400" class="active" alt="Slide 1" />
+    <img src="https://picsum.photos/id/1015/600/400" alt="Slide 2" />
+    <img src="https://picsum.photos/id/1019/600/400" alt="Slide 3" />
+    <div class="controls">
+      <button id="prevBtn">&#10094;</button>
+      <button id="nextBtn">&#10095;</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('#slider img');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    document.getElementById('prevBtn').onclick = () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    };
+
+    document.getElementById('nextBtn').onclick = () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    };
+
+    // Auto slide every 5 seconds
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }, 5000);
+  </script>
+</body>
+</html>

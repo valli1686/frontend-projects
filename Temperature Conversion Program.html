@@ -1,0 +1,81 @@
+<!-- Temperature Conversion Program -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Temperature Converter</title>
+<style>
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin-top: 50px;
+  }
+  input, select {
+    font-size: 1.5rem;
+    margin: 10px;
+    padding: 5px;
+  }
+  button {
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  #result {
+    margin-top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <h1>Temperature Converter</h1>
+  <input type="number" id="tempInput" placeholder="Enter temperature" />
+  <select id="scaleFrom">
+    <option value="C">Celsius (°C)</option>
+    <option value="F">Fahrenheit (°F)</option>
+    <option value="K">Kelvin (K)</option>
+  </select>
+  to
+  <select id="scaleTo">
+    <option value="C">Celsius (°C)</option>
+    <option value="F">Fahrenheit (°F)</option>
+    <option value="K">Kelvin (K)</option>
+  </select>
+  <br />
+  <button id="convertBtn">Convert</button>
+
+  <div id="result"></div>
+
+  <script>
+    function convertTemperature(value, from, to) {
+      if (from === to) return value;
+
+      // Convert from input scale to Celsius first
+      let celsius;
+      if (from === 'C') celsius = value;
+      else if (from === 'F') celsius = (value - 32) * 5 / 9;
+      else if (from === 'K') celsius = value - 273.15;
+
+      // Convert Celsius to target scale
+      if (to === 'C') return celsius;
+      else if (to === 'F') return (celsius * 9 / 5) + 32;
+      else if (to === 'K') return celsius + 273.15;
+    }
+
+    document.getElementById('convertBtn').onclick = () => {
+      const temp = parseFloat(document.getElementById('tempInput').value);
+      const from = document.getElementById('scaleFrom').value;
+      const to = document.getElementById('scaleTo').value;
+
+      if (isNaN(temp)) {
+        document.getElementById('result').textContent = 'Please enter a valid number.';
+        return;
+      }
+
+      const converted = convertTemperature(temp, from, to);
+      document.getElementById('result').textContent = `${temp}°${from} = ${converted.toFixed(2)}°${to}`;
+    };
+  </script>
+</body>
+</html>
