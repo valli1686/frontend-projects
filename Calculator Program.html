@@ -1,0 +1,125 @@
+<!-- Calculator Program -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Calculator</title>
+<style>
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: wheat;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  #calculator {
+    background-color: rgb(23, 17, 10);
+    border-radius: 15px;
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+  #display {
+    width: 100%;
+    padding: 20px;
+    font-size: 5rem;
+    text-align: right;
+    border: none;
+    background-color: rgb(99, 89, 89);
+    color: white;
+  }
+  #keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 25px;
+  }
+  button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: rgb(92, 82, 68);
+    color: aliceblue;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+  }
+  button:hover {
+    background-color: rgb(159, 148, 148);
+  }
+  button:active {
+    background-color: rgb(190, 181, 181);
+  }
+  .operator-btn {
+    background-color: rgb(226, 179, 90);
+  }
+  .operator-btn:hover {
+    background-color: rgb(239, 219, 182);
+  }
+  .operator-btn:active {
+    background-color: rgb(238, 197, 123);
+  }
+</style>
+</head>
+<body>
+  <div id="calculator">
+    <input type="text" id="display" readonly />
+    <div id="keys">
+      <button class="number-btn">7</button>
+      <button class="number-btn">8</button>
+      <button class="number-btn">9</button>
+      <button class="operator-btn">/</button>
+
+      <button class="number-btn">4</button>
+      <button class="number-btn">5</button>
+      <button class="number-btn">6</button>
+      <button class="operator-btn">*</button>
+
+      <button class="number-btn">1</button>
+      <button class="number-btn">2</button>
+      <button class="number-btn">3</button>
+      <button class="operator-btn">-</button>
+
+      <button class="number-btn">0</button>
+      <button class="number-btn">.</button>
+      <button id="clearBtn">C</button>
+      <button class="operator-btn">+</button>
+
+      <button id="equalsBtn" style="grid-column: span 4; border-radius: 30px;">=</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('#keys button');
+    let currentInput = '';
+
+    buttons.forEach(button => {
+      button.onclick = () => {
+        const val = button.textContent;
+
+        if (val === 'C') {
+          currentInput = '';
+          display.value = '';
+        } else if (val === '=') {
+          try {
+            currentInput = eval(currentInput).toString();
+            display.value = currentInput;
+          } catch {
+            display.value = 'Error';
+            currentInput = '';
+          }
+        } else {
+          currentInput += val;
+          display.value = currentInput;
+        }
+      };
+    });
+  </script>
+</body>
+</html>

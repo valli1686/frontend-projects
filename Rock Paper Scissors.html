@@ -1,0 +1,87 @@
+<!-- Rock Paper Scissors -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rock Paper Scissors</title>
+<style>
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+  }
+  h1 {
+    font-size: 3.5rem;
+    color: rgb(32, 28, 28);
+  }
+  .choices {
+    margin-bottom: 30px;
+  }
+  .choices button {
+    font-size: 7.5rem;
+    min-width: 160px;
+    margin: 0 10px;
+    border-radius: 250px;
+    background-color: rgb(114, 228, 228);
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    border: none;
+  }
+  .choices button:hover {
+    background-color: rgb(24, 187, 187);
+  }
+  #player {
+    font-size: 2.5rem;
+  }
+  #result {
+    font-size: 5rem;
+    margin: 30px 0;
+  }
+</style>
+</head>
+<body>
+  <h1>Rock Paper Scissors</h1>
+  <div class="choices">
+    <button id="rock">✊</button>
+    <button id="paper">✋</button>
+    <button id="scissors">✌️</button>
+  </div>
+  <div id="player"></div>
+  <div id="result"></div>
+
+  <script>
+    const choices = ['rock', 'paper', 'scissors'];
+    const emojis = {rock: '✊', paper: '✋', scissors: '✌️'};
+    const playerDisplay = document.getElementById('player');
+    const resultDisplay = document.getElementById('result');
+
+    function getComputerChoice() {
+      const randomIndex = Math.floor(Math.random() * 3);
+      return choices[randomIndex];
+    }
+
+    function getWinner(player, computer) {
+      if (player === computer) return "It's a tie!";
+      if (
+        (player === 'rock' && computer === 'scissors') ||
+        (player === 'paper' && computer === 'rock') ||
+        (player === 'scissors' && computer === 'paper')
+      ) return 'You win!';
+      return 'You lose!';
+    }
+
+    choices.forEach(choice => {
+      document.getElementById(choice).onclick = () => {
+        const computerChoice = getComputerChoice();
+        playerDisplay.textContent = `You: ${emojis[choice]}  vs  Computer: ${emojis[computerChoice]}`;
+        resultDisplay.textContent = getWinner(choice, computerChoice);
+      };
+    });
+  </script>
+</body>
+</html>
